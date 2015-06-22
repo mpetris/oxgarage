@@ -20,6 +20,10 @@ build:
 	@echo Maven build
 	mvn install
 
+sitedoc:
+	mvn site
+	for i in */target; do mv $$i/site target/site/`echo $$i | sed 's/.target//'`;done
+
 debversion:
 	sh ./mydch debian-tei-oxgarage/debian/changelog
 
